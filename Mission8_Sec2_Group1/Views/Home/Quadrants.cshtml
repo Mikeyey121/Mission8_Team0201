@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}@* 
+HAVE TO CHANGE TO MATCH THE MODEL *@
+@model List<MusicApplication.Models.Movies>
+
+<table class="table table-bordered">
+    <thead class="fw-bold">
+        <tr>
+            <th>Task</th>
+            <th>Due Date</th>
+            <th>Quadrant</th>
+            <th>Cateogry</th>
+            <th>Completed</th>
+        </tr>
+    </thead>
+    <tbody class="table-striped table-hover table-responsive">
+        @foreach (var quadrant in Model)
+        {
+            <tr>
+                <td>@quadrant.Task</td>
+                <td>@quadrant.DueDate</td>
+                <td>@quadrant.Quadrant</td>
+                <td>@quadrant.Category</td>
+                <td>@quadrant.Completed</td>
+
+                <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@quadrant.Id">Edit</a></td>
+                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@quadrant.Id">Delete</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>
