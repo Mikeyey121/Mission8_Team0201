@@ -22,5 +22,10 @@ namespace Mission8_Sec2_Group1.Controllers
         {
             return View();
         }
+
+        public IActionResult Quadrants()
+        {
+            ViewBag
+        }
     }
 }
