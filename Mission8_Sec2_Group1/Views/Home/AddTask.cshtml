@@ -1,4 +1,3 @@
-
 @model TaskModel.Models.Task
 @using CategoryModel.Models
 
@@ -28,7 +27,7 @@
 
     <select asp-for="CategoryId">
         <option value="">Select a Category</option>
-        @foreach (Category c in ViewBag.Categories)
+        @foreach (Categories c in ViewBag.Categories)
         {
         <option value="@c.CategoryId">@c.CategoryName</option>
         }

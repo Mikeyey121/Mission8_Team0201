@@ -4,6 +4,7 @@ using System.Diagnostics;
 using SQLitePCL;
 using Microsoft.EntityFrameworkCore;
 using HabitContext.Models;
+using CategoryModel.Models;
 
 namespace Mission8_Sec2_Group1.Controllers
 {
@@ -30,10 +31,10 @@ namespace Mission8_Sec2_Group1.Controllers
         [HttpGet]
         public IActionResult AddTask()
         {
-            ViewBag.Tasks = _context.Categories
+            ViewBag.Categories = _context.Categories
                 .OrderBy(x => x.CategoryName).ToList();
 
-            return View();
+            return View(new TaskModel.Models.Task());
         }
 
         [HttpPost]
