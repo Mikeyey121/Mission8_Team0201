@@ -1,9 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using CategoryModel.Models;
-
-namespace TaskModel.Models
+﻿namespace TaskModel.Models
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using CategoryModel.Models;
     public class Task
     {
         [Key]
@@ -20,7 +19,7 @@ namespace TaskModel.Models
         [ForeignKey("CategoryId")]
         public int? CategoryId { get; set; }
 
-        public Category? Category { get; set; }
+        public Categories? Category { get; set; }
 
         public bool? IsCompleted { get; set; }
     }

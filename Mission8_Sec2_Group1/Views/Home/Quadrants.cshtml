@@ -27,6 +27,10 @@ HAVE TO CHANGE TO MATCH THE MODEL *@
                     <td>@task.Quadrant</td>
                     <td>@task.CategoryName</td>
                     <td>@task.IsCompleted</td>
+                <td>@task.TaskName</td>
+                <td>@task.Date</td>
+                <td>@task.Quadrant</td>
+                <td>@task.IsCompleted</td>
 
                     <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@task.TaskId">Edit</a></td>
                     <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@task.TaskId">Delete</a></td>
