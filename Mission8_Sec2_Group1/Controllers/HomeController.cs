@@ -52,8 +52,8 @@ namespace Mission8_Sec2_Group1.Controllers
             }
             else
             {
-                ViewBag.Categories = _context.Tasks
-                    .OrderBy(x => x.TaskId).ToList();
+                ViewBag.Categories = _context.Categories
+                    .OrderBy(x => x.CategoryName).ToList();
 
                 return View(task);
             }
