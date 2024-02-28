@@ -36,8 +36,8 @@ namespace Mission8_Sec2_Group1.Controllers
         [HttpGet]
         public IActionResult AddTask()
         {
-            ViewBag.Tasks = _context.Tasks
-                .OrderBy(x => x.TaskId).ToList();
+            ViewBag.Tasks = _context.Categories
+                .OrderBy(x => x.CategoryName).ToList();
 
             return View();
         }
