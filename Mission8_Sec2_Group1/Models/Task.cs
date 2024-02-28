@@ -1,9 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using CategoryModel.Models;
-
-namespace TaskModel.Models
+﻿namespace TaskModel.Models
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using CategoryModel.Models;
     public class Task
     {
         [Key]
