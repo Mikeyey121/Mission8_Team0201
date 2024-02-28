@@ -16,12 +16,6 @@ namespace Mission8_Sec2_Group1.Controllers
             _context = context;
         }
 
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
 
         public IActionResult Index()
         {
@@ -61,21 +55,14 @@ namespace Mission8_Sec2_Group1.Controllers
             return RedirectToAction("Quadrants");
         }
 
-        [HttpGet]
-        public IActionResult Quadrants() 
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Quadrants(TaskModel.Models.Task task)
+        public IActionResult Quadrants()
         {
             var tasks = _context.Tasks
                 .Include(x => x.Category)
                 .OrderBy(x => x.TaskId).ToList();
 
 
-            return View(task);
+            return View(tasks);
         }
     }
 }
