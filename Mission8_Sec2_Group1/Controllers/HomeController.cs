@@ -11,6 +11,11 @@ namespace Mission8_Sec2_Group1.Controllers
     {
         private HabitsContext _context;
 
+        public HomeController(HabitsContext context)
+        {
+            _context = context;
+        }
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -38,11 +43,11 @@ namespace Mission8_Sec2_Group1.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddTask(AddTask task)
+        public IActionResult AddTask(TaskModel.Models.Task task)
         {
             if (ModelState.IsValid)
             {
-                _context.AddTask.Add(task);
+                _context.Tasks.Add(task);
                 _context.SaveChanges();
             }
             else
@@ -63,14 +68,14 @@ namespace Mission8_Sec2_Group1.Controllers
         }
 
         [HttpPost]
-        public IActionResult Quadrants()
+        public IActionResult Quadrants(TaskModel.Models.Task task)
         {
             var tasks = _context.Tasks
                 .Include(x => x.Category)
                 .OrderBy(x => x.TaskId).ToList();
 
 
-            return View(tasks);
+            return View(task);
         }
     }
 }
