@@ -65,5 +65,43 @@ namespace Mission8_Sec2_Group1.Controllers
 
             return View(tasks);
         }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var record = _context.Tasks
+                .Single(x => x.TaskId == id);
+
+            ViewBag.Categories = _context.Categories
+                    .OrderBy(x => x.CategoryName).ToList();
+
+            return View("AddTask", record);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(TaskModel.Models.Task task)
+        {
+            _context.Update(task);
+            _context.SaveChanges();
+            return RedirectToAction("Quadrants");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var record = _context.Tasks
+                .Single(x => x.TaskId == id);
+
+            return View(record);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(TaskModel.Models.Task task)
+        {
+            _context.Tasks.Remove(task);
+            _context.SaveChanges();
+
+            return RedirectToAction("Quadrants");
+        }
     }
 }
