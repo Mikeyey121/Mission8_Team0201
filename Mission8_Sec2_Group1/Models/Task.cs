@@ -9,6 +9,9 @@ namespace TaskModel.Models
         [Key]
         public int TaskId { get; set; }
 
+        [Required]
+        public string TaskName { get; set; }
+
         public DateTime? Date { get; set; }
 
         [Required]
