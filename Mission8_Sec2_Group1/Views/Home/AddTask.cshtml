@@ -1,4 +1,5 @@
 @model TaskModel.Models.Task
+@using CategoryModel.Models
 
 @{
     ViewData["Title"] = "Add Task";
@@ -25,7 +26,7 @@
 
     <select asp-for="CategoryId">
         <option value="">Select a Category</option>
-        @foreach (CategoryModel c in ViewBag.Categories)
+        @foreach (Category c in ViewBag.Categories)
         {
         <option value="@c.CategoryId">@c.CategoryName</option>
         }
