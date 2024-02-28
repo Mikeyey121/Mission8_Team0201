@@ -4,6 +4,7 @@ using System.Diagnostics;
 using SQLitePCL;
 using Microsoft.EntityFrameworkCore;
 using HabitContext.Models;
+using CategoryModel.Models;
 
 namespace Mission8_Sec2_Group1.Controllers
 {
@@ -16,12 +17,6 @@ namespace Mission8_Sec2_Group1.Controllers
             _context = context;
         }
 
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
 
         public IActionResult Index()
         {
@@ -36,10 +31,10 @@ namespace Mission8_Sec2_Group1.Controllers
         [HttpGet]
         public IActionResult AddTask()
         {
-            ViewBag.Tasks = _context.Tasks
-                .OrderBy(x => x.TaskId).ToList();
+            ViewBag.Categories = _context.Categories
+                .OrderBy(x => x.CategoryName).ToList();
 
-            return View();
+            return View(new TaskModel.Models.Task());
         }
 
         [HttpPost]
@@ -52,8 +47,8 @@ namespace Mission8_Sec2_Group1.Controllers
             }
             else
             {
-                ViewBag.Categories = _context.Tasks
-                    .OrderBy(x => x.TaskId).ToList();
+                ViewBag.Categories = _context.Categories
+                    .OrderBy(x => x.CategoryName).ToList();
 
                 return View(task);
             }
@@ -61,21 +56,14 @@ namespace Mission8_Sec2_Group1.Controllers
             return RedirectToAction("Quadrants");
         }
 
-        [HttpGet]
-        public IActionResult Quadrants() 
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Quadrants(TaskModel.Models.Task task)
+        public IActionResult Quadrants()
         {
             var tasks = _context.Tasks
                 .Include(x => x.Category)
                 .OrderBy(x => x.TaskId).ToList();
 
 
-            return View(task);
+            return View(tasks);
         }
     }
 }

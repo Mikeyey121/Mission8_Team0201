@@ -12,12 +12,12 @@ namespace HabitContext.Models
 
         public DbSet<TaskModel.Models.Task> Tasks { get; set; }
 
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Categories> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Category>().HasData(
-                    new Category { CategoryId = 1, CategoryName = "Home" }
+            modelBuilder.Entity<Categories>().HasData(
+                    new Categories { CategoryId = 1, CategoryName = "Home" }
                 );
         }
     }

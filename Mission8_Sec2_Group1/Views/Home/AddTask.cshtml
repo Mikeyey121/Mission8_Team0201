@@ -1,4 +1,3 @@
-
 @model TaskModel.Models.Task
 @using CategoryModel.Models
 
@@ -47,3 +46,40 @@
 
     </form>
 </div>
+=======
+<form method="post">
+    <input type="hidden" asp-for="TaskId" />
+
+    <label asp-for="TaskName">Task:</label>
+    <input asp-for="TaskName" /><br />
+
+    <label asp-for="Date">Due Date:</label>
+    <input asp-for="Date" type="date" /><br />
+
+    <label asp-for="Quadrant">Quadrant:</label>
+    <select asp-for="Quadrant">
+        <option value="1">I</option>
+        <option value="2">II</option>
+        <option value="3">III</option>
+        <option value="4">IV</option>
+    </select><br />
+
+    <select asp-for="CategoryId">
+        <option value="">Select a Category</option>
+        @foreach (Categories c in ViewBag.Categories)
+        {
+        <option value="@c.CategoryId">@c.CategoryName</option>
+        }
+    </select><br />
+
+    <label asp-for="IsCompleted">Completed:</label>
+    <select asp-for="IsCompleted">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select><br />
+
+    <button type="submit">Submit</button>
+
+    <div asp-validation-summary="All"></div>
+
+</form>
