@@ -1,3 +1,5 @@
+//Harrison Stone, Micheal Hutchings, Jonah Allen, Davis Rasband
+
 using Microsoft.EntityFrameworkCore;
 using HabitContext.Models;
 

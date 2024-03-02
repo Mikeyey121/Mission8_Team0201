@@ -60,7 +60,7 @@ namespace Mission8_Sec2_Group1.Controllers
         {
             var tasks = _context.Tasks
                 .Include(x => x.Category)
-                .OrderBy(x => x.TaskId).ToList();
+                .OrderBy(x => x.Quadrant).ToList();
 
 
             return View(tasks);
