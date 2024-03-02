@@ -2,42 +2,138 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-}@* 
-HAVE TO CHANGE TO MATCH THE MODEL *@
+}@*
+    HAVE TO CHANGE TO MATCH THE MODEL *@
 @model List<TaskModel.Models.Task>
 
-<div class="col-10 offset-1">
-
     <table class="table table-bordered">
+        <h2>Quadrant 1</h2>
         <thead class="fw-bold">
             <tr>
                 <th>Task</th>
                 <th>Due Date</th>
                 <th>Quadrant</th>
-                <th>Cateogry</th>
                 <th>Completed</th>
+                <th>Edit</th>
+                <th>Delete</th>
+
             </tr>
         </thead>
         <tbody class="table-striped table-hover table-responsive">
             @foreach (var task in Model)
+        {
+            if (task.Quadrant == 1 && task.IsCompleted == false)
             {
-                <tr>
-                    <td>@task.TaskName</td>
-                    <td>@task.Date</td>
-                    <td>@task.Quadrant</td>
-                    <td>@task.CategoryName</td>
-                    <td>@task.IsCompleted</td>
+            <tr>
                 <td>@task.TaskName</td>
                 <td>@task.Date</td>
                 <td>@task.Quadrant</td>
                 <td>@task.IsCompleted</td>
 
-                    <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@task.TaskId">Edit</a></td>
-                    <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@task.TaskId">Delete</a></td>
+                <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@task.TaskId">Edit</a></td>
+                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@task.TaskId">Delete</a></td>
 
-                </tr>
+            </tr>
             }
+        }
         </tbody>
     </table>
 
-</div>
+    <table class="table table-bordered">
+        <h2>Quadrant 2</h2>
+        <thead class="fw-bold">
+            <tr>
+                <th>Task</th>
+                <th>Due Date</th>
+                <th>Quadrant</th>
+                <th>Completed</th>
+                <th>Edit</th>
+                <th>Delete</th>
+
+            </tr>
+        </thead>
+        <tbody class="table-striped table-hover table-responsive">
+            @foreach (var task in Model)
+        {
+            if (task.Quadrant == 2 && task.IsCompleted == false)
+            {
+            <tr>
+                <td>@task.TaskName</td>
+                <td>@task.Date</td>
+                <td>@task.Quadrant</td>
+                <td>@task.IsCompleted</td>
+
+                <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@task.TaskId">Edit</a></td>
+                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@task.TaskId">Delete</a></td>
+
+            </tr>
+            }
+        }
+        </tbody>
+    </table>
+
+    <table class="table table-bordered">
+        <h2>Quadrant 3</h2>
+        <thead class="fw-bold">
+            <tr>
+                <th>Task</th>
+                <th>Due Date</th>
+                <th>Quadrant</th>
+                <th>Completed</th>
+                <th>Edit</th>
+                <th>Delete</th>
+
+            </tr>
+        </thead>
+        <tbody class="table-striped table-hover table-responsive">
+            @foreach (var task in Model)
+        {
+            if (task.Quadrant == 3 && task.IsCompleted == false)
+            {
+            <tr>
+                <td>@task.TaskName</td>
+                <td>@task.Date</td>
+                <td>@task.Quadrant</td>
+                <td>@task.IsCompleted</td>
+
+                <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@task.TaskId">Edit</a></td>
+                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@task.TaskId">Delete</a></td>
+
+            </tr>
+            }
+        }
+        </tbody>
+    </table>
+
+    <table class="table table-bordered">
+        <h2>Quadrant 4</h2>
+        <thead class="fw-bold">
+            <tr>
+                <th>Task</th>
+                <th>Due Date</th>
+                <th>Quadrant</th>
+                <th>Completed</th>
+                <th>Edit</th>
+                <th>Delete</th>
+
+            </tr>
+        </thead>
+        <tbody class="table-striped table-hover table-responsive">
+            @foreach (var task in Model)
+        {
+            if (task.Quadrant == 4 && task.IsCompleted == false)
+            {
+            <tr>
+                <td>@task.TaskName</td>
+                <td>@task.Date</td>
+                <td>@task.Quadrant</td>
+                <td>@task.IsCompleted</td>
+
+                <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@task.TaskId">Edit</a></td>
+                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@task.TaskId">Delete</a></td>
+
+            </tr>
+            }
+        }
+        </tbody>
+    </table>
